@@ -52,8 +52,8 @@ const initCustomCursor = () => {
 
     // Smooth cursor animation loop
     const animateCursor = () => {
-        cursorX += (mouseX - cursorX) * 0.15;
-        cursorY += (mouseY - cursorY) * 0.15;
+        cursorX += (mouseX - cursorX) * 0.4;
+        cursorY += (mouseY - cursorY) * 0.4;
         cursor.style.left = cursorX + 'px';
         cursor.style.top = cursorY + 'px';
         requestAnimationFrame(animateCursor);
@@ -351,6 +351,30 @@ const initGallery = () => {
     });
 };
 
+// Mobile Navigation Toggle
+const initMobileNav = () => {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const links = document.querySelectorAll('.mobile-nav-links a');
+
+    if (!hamburger || !mobileNav) return;
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when a link is clicked
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+};
+
 // Initialize everything on DOM load
 document.addEventListener('DOMContentLoaded', () => {
     revealOnScroll();
@@ -363,6 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTiltEffect();
     initWorldClock();
     initTypewriter();
+    initMobileNav();
     initGallery();
 
     // Initialize hero videos with staggered start times
