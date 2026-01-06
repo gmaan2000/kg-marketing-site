@@ -529,6 +529,11 @@ blockquote {
   animation-duration: 3.4s;
 }
 
+.social-icon:nth-child(5) svg {
+  animation-delay: -1.5s;
+  animation-duration: 3.0s;
+}
+
 .footer-links {
   display: flex;
   justify-content: center;
