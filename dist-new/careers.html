@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers | Join K&G</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700;900&family=Quicksand:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        .careers-header {
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+
+        .careers-title {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            font-family: var(--font-display);
+        }
+
+        .careers-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .job-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 20px;
+            transition: transform 0.3s, background 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .job-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--text-white);
+        }
+
+        .job-tag {
+            display: inline-block;
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--accent-green);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .job-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .apply-btn {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/main-DgZeJ_QL.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-C8iXmoCf.css">
+</head>
+
+<body>
+    <div class="cursor-follower"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="./index.html"><img src="/logo.jpeg" alt="K&G Logo" class="brand-logo" /></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html#services">Services</a></li>
+                <li><a href="./index.html#work">Work</a></li>
+                <li><a href="./index.html#about">About</a></li>
+                <li><a href="./index.html#contact" class="btn-primary">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="careers-header">
+            <div class="container">
+                <h1 class="careers-title">Join the <span class="accent-text">Vanguard</span></h1>
+                <p class="careers-subtitle">We are looking for the obsessive, the creative, and the technical to build
+                    the future of media.</p>
+            </div>
+        </section>
+
+        <section class="jobs-section">
+            <div class="container">
+                <div class="jobs-grid">
+                    <!-- Full Stack Developer -->
+                    <div class="job-card">
+                        <div>
+                            <span class="job-tag">Engineering</span>
+                            <h3 class="job-title">Full Stack Developer</h3>
+                            <p class="job-description">
+                                You dream in code and think in systems. We need a builder who can architect scalable web
+                                applications, manage complex databases, and craft seamless front-end experiences. React,
+                                Node.js, and a passion for performance are non-negotiable. Help us build the internal
+                                tools and client platforms that power our global operations.
+                            </p>
+                        </div>
+                        <a href="mailto:careers@kg.agency?subject=Application: Full Stack Developer"
+                            class="btn-glow apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Automation Expert -->
+                    <div class="job-card">
+                        <div>
+                            <span class="job-tag">Operations</span>
+                            <h3 class="job-title">Automation Expert (n8n)</h3>
+                            <p class="job-description">
+                                If you hate doing things twice, we want you. We are seeking a workflow wizard to
+                                streamline our agency operations using n8n, Zapier, and custom scripts. You will connect
+                                APIs, automate reporting, and build the invisible pipes that make our creative work flow
+                                effortlessly. Efficiency is your art form.
+                            </p>
+                        </div>
+                        <a href="mailto:careers@kg.agency?subject=Application: Automation Expert"
+                            class="btn-glow apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Web & Graphic Designer -->
+                    <div class="job-card">
+                        <div>
+                            <span class="job-tag">Creative</span>
+                            <h3 class="job-title">Web & Graphic Designer</h3>
+                            <p class="job-description">
+                                You live at the intersection of aesthetics and usability. We need a visionary designer
+                                to lead our visual identity, from high-fidelity web mockups to stunning social assets.
+                                You understand that design is not just about making things pretty—it's about
+                                communication, conversion, and creating an emotional response.
+                            </p>
+                        </div>
+                        <a href="mailto:careers@kg.agency?subject=Application: Web & Graphic Designer"
+                            class="btn-glow apply-btn">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-logo"><img src="/logo.jpeg" alt="K&G" class="footer-logo-img"></div>
+            <p class="footer-tagline">Made by K&G with <span class="cyber-heart"><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" />
+                        <path d="M7 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round" opacity="0.5" />
+                    </svg></span> across 4 timezones</p>
+
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="./careers.html" style="color: var(--accent-green);">Careers</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
