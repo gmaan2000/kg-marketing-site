@@ -376,7 +376,7 @@ const initMobileNav = () => {
 };
 
 // Initialize everything on DOM load
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     revealOnScroll();
     initSmoothScroll();
     initCustomCursor();
@@ -389,6 +389,45 @@ document.addEventListener('DOMContentLoaded', () => {
     initTypewriter();
     initMobileNav();
     initGallery();
+
+    // Initialize Flickering Grid Background
+    try {
+        const { initFlickeringGrid } = await import('./flickering-grid.js');
+        initFlickeringGrid();
+    } catch (error) {
+        console.error('Failed to load flickering grid:', error);
+    }
+
+    // Initialize Globe component
+    const globeCanvas = document.getElementById('globe-canvas');
+    if (globeCanvas) {
+        try {
+            // Import globe module
+            const { initGlobe, handleGlobeResize } = await import('./globe.js');
+
+            // Initialize globe when it becomes visible
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const globeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initGlobe(globeCanvas);
+                        globeObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            globeObserver.observe(globeCanvas);
+
+            // Handle window resize
+            window.addEventListener('resize', () => handleGlobeResize(globeCanvas));
+
+        } catch (error) {
+            console.error('Failed to load globe:', error);
+        }
+    }
 
     // Initialize hero videos with staggered start times
     const heroVideos = document.querySelectorAll('.hero-video');
@@ -413,3 +452,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 500);
 });
+

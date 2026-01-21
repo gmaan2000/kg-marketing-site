@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K&G Service Packages</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Base Styles reused from Desgin System */
+        body,
+        p,
+        h1,
+        h2,
+        h3,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #0a0a0a;
+            padding: 40px 20px;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h1.title {
+            font-size: 42px;
+            margin-bottom: 10px;
+            line-height: 1;
+            color: #ffffff;
+        }
+
+        .accent-text {
+            color: #0a0a0a;
+            /* Dark transparent-like fill */
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-style: italic;
+            /* Outline effect */
+            -webkit-text-stroke: 1px #00ff88;
+            /* Hard shadow for depth */
+            text-shadow: 3px 3px 0px #00cc66;
+            letter-spacing: -1px;
+            display: inline-block;
+            transform: skewX(-10deg);
+            padding: 0 5px;
+            font-size: 180%;
+        }
+
+        /* Reusing Logo Wrapper Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-wrapper {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transform: scale(2.0);
+            transform-origin: center;
+        }
+
+        /* Package Cards */
+        .package-category {
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            font-size: 40px;
+            color: #00ff88;
+            margin-bottom: 15px;
+            border-left: 4px solid #00ff88;
+            padding-left: 15px;
+        }
+
+        .package-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .package-name {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .package-price {
+            font-size: 24px;
+            color: #00bbff;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .package-details {
+            font-size: 14px;
+            color: #a0a0a0;
+            margin-bottom: 0;
+        }
+
+        /* Highlight Element */
+        .highlight {
+            border: 1px solid #00ff88;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 40px;
+        }
+
+        .social-link {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+
+        .footer-text {
+            color: #606060;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .btn-glow {
+            display: inline-block;
+            background-color: #00ff88;
+            color: #0a0a0a;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+                padding: 15px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-wrapper">
+                <img src="./public/logo.jpeg" alt="K&G Logo" class="logo-img">
+            </div>
+        </div>
+
+        <!-- Intro -->
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1 class="title">Unlock Your <br><span class="accent-text">POTENTIAL</span></h1>
+            <p style="color: #a0a0a0; font-size: 16px; margin-top: 15px;">
+                Ready to scale? Choose the package that fits your growth stage.
+            </p>
+        </div>
+
+        <!-- Websites -->
+        <div class="package-category">
+            <img src="./public/cyberpunk_websites.png" alt="Futuristic Website Interface"
+                style="width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);">
+            <h2 class="category-title">Websites</h2>
+
+            <div class="package-card">
+                <div class="package-name">Landing Page</div>
+                <div class="package-price">$497</div>
+                <p class="package-details">High-converting single page designed for ad campaigns. <strong>Delivery in
+                        2-3 days max.</strong></p>
+            </div>
+
+            <div class="package-card highlight">
+                <div class="package-name">Business Starter</div>
+                <div class="package-price">$997</div>
+                <p class="package-details">5-page professional site (Home, About, Services, Contact, Case Studies).
+                    Establishing your digital credibility.</p>
+            </div>
+
+            <div class="package-card">
+                <div class="package-name">Professional</div>
+                <div class="package-price">$1,997</div>
+                <p class="package-details">10 pages + Blog setup + SEO. A complete digital headquarters focused on
+                    organic growth.</p>
+            </div>
+        </div>
+
+        <!-- Voice AI -->
+        <div class="package-category">
+            <img src="./public/cyberpunk_voice_ai.png" alt="AI Voice Assistant"
+                style="width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);">
+            <h2 class="category-title">Voice AI Agents</h2>
+            <div class="package-card highlight">
+                <div class="package-name">24/7 AI Receptionist</div>
+                <div class="package-price">From $197 <span
+                        style="font-size: 14px; color: #a0a0a0; font-family: 'Inter'">/ month</span></div>
+                <p class="package-details">Never miss a lead. Handles booking, qualifies prospects, and answers FAQs
+                    instantly—day or night.
+                </p>
+            </div>
+        </div>
+
+        <!-- Automations -->
+        <div class="package-category">
+            <img src="./public/cyberpunk_automations.png" alt="Workflow Automation"
+                style="width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);">
+            <h2 class="category-title">Automations</h2>
+            <div class="package-card">
+                <div class="package-name">Single Workflow</div>
+                <div class="package-price">$297</div>
+                <p class="package-details">One robust automation to streamline a bottleneck (e.g., Lead to CRM + SMS
+                    Welcome).</p>
+            </div>
+            <div class="package-card display: flex; justify-content: space-between;">
+                <div>
+                    <div class="package-name">Business Bundle</div>
+                    <div class="package-price">$797</div>
+                    <p class="package-details">3 custom automations. Examples: Client Onboarding, Automated Invoicing,
+                        and Social Content Scheduling.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="color: #ffffff; margin-bottom: 15px;">Need a custom solution?</p>
+            <a href="#" class="btn-glow">Book a Consultation</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="social-icons" style="text-align: center;">
+                <a href="https://instagram.com/kandgmarketing" target="_blank" class="social-link"><img
+                        src="https://img.icons8.com/ios-filled/50/00ff88/instagram-new.png" alt="IG"></a>
+                <a href="https://facebook.com/kandgmarketing" target="_blank" class="social-link"><img
+                        src="https://img.icons8.com/ios-filled/50/00ff88/facebook-new.png" alt="FB"></a>
+                <a href="https://linkedin.com/company/kandgmarketing" target="_blank" class="social-link"><img
+                        src="https://img.icons8.com/ios-filled/50/00ff88/linkedin.png" alt="LN"></a>
+                <a href="https://x.com/kandgmarketing" target="_blank" class="social-link"><img
+                        src="https://img.icons8.com/ios-filled/50/00ff88/twitterx--v1.png" alt="X"></a>
+                <a href="https://tiktok.com/@kandgmarketing" target="_blank" class="social-link"><img
+                        src="https://img.icons8.com/ios-filled/50/00ff88/tiktok--v1.png" alt="TT"></a>
+            </div>
+            <p class="footer-text">Made by K&G with <span style="color: #00ff88;">&hearts;</span> across 4 timezones</p>
+            <div style="margin-top: 15px;">
+                <a href="#" style="color: #606060; text-decoration: none; font-size: 12px; margin: 0 10px;">Privacy</a>
+                <a href="#"
+                    style="color: #606060; text-decoration: none; font-size: 12px; margin: 0 10px;">Unsubscribe</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -157,6 +157,18 @@
           <h3>SaaS Solutions</h3>
           <p>Multi-tenant architecture and custom admin dashboards.</p>
         </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="4" y="4" width="16" height="16" rx="2" stroke-linecap="round" stroke-linejoin="round" />
+              <rect x="9" y="9" width="6" height="6" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M9 1v3m6-3v3M9 20v3m6-3v3M20 9h3m-3 6h3M1 9h3m-3 6h3" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3>AI & Automation</h3>
+          <p>Custom AI agents, automated workflows, and scalable intelligent systems.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -274,8 +286,8 @@
             continents."</blockquote>
         </div>
       </div>
-      <div class="about-image-placeholder glass">
-        <img src="/logo.jpeg" alt="K&G" style="width: 100%; border-radius: 20px; opacity: 0.5;">
+      <div class="globe-container">
+        <canvas id="globe-canvas" width="600" height="600"></canvas>
       </div>
     </div>
   </section>
@@ -384,6 +396,8 @@
   </footer>
 
   <script type="module" src="/main.js"></script>
+  <div id="kg-widget-root"></div>
+  <script type="module" src="/src/mount-widget.jsx"></script>
 </body>
 
 </html>

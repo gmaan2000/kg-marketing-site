@@ -25,6 +25,34 @@ body {
   overflow-x: hidden;
   cursor: none;
   /* Hide default cursor for custom follower */
+  position: relative;
+}
+
+/* Animated Grid Pattern Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, rgba(0, 255, 136, 0.15) 2px, transparent 2px),
+    linear-gradient(to bottom, rgba(0, 255, 136, 0.15) 2px, transparent 2px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 h1,
@@ -56,10 +84,27 @@ h3,
   padding: 0 40px;
 }
 
-.brand-logo {
+.logo a {
+  display: block;
+  width: 120px;
   height: 120px;
   border-radius: 8px;
+  overflow: hidden;
   filter: drop-shadow(0 0 10px var(--accent-green));
+  background: white;
+  /* Ensure base is white since it's a square logo */
+}
+
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.4);
+  transition: transform 0.3s ease;
+}
+
+.logo a:hover .brand-logo {
+  transform: scale(1.5);
 }
 
 .nav-links {
@@ -417,6 +462,50 @@ blockquote {
   color: var(--text-gray);
 }
 
+/* Globe Container */
+.globe-container {
+  width: 100%;
+  max-width: 600px;
+  /* Increased from 500px (20% bigger) */
+  height: 600px;
+  /* Increased from 500px (20% bigger) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 255, 136, 0.15);
+  /* Neon green glow */
+  position: relative;
+  overflow: hidden;
+}
+
+.globe-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.08) 0%, transparent 70%);
+  /* Neon green gradient */
+  pointer-events: none;
+}
+
+#globe-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .globe-container {
+    height: 480px;
+    /* Increased from 400px (20% bigger) */
+    max-width: 100%;
+  }
+}
+
+
 /* Contact */
 .contact-card {
   max-width: 800px;
@@ -460,11 +549,20 @@ blockquote {
 
 .footer-logo {
   margin-bottom: 15px;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  filter: drop-shadow(0 0 8px var(--accent-green));
 }
 
 .footer-logo-img {
-  height: 60px;
-  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.4);
   opacity: 0.9;
 }
 

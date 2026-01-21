@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K&G Update</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Reset & Base */
+        body,
+        p,
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container */
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #0a0a0a;
+            padding: 40px 20px;
+        }
+
+        /* Typography */
+        h1,
+        h2 {
+            font-family: 'Bebas Neue', Arial, sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1.title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .accent-text {
+            color: #0a0a0a;
+            /* Dark transparent-like fill */
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-style: italic;
+            /* Outline effect */
+            -webkit-text-stroke: 1px #00ff88;
+            /* Hard shadow for depth */
+            text-shadow: 3px 3px 0px #00cc66;
+            letter-spacing: -1px;
+            display: inline-block;
+            transform: skewX(-10deg);
+            padding: 0 5px;
+            font-size: 150%;
+        }
+
+        .text-gray {
+            color: #a0a0a0;
+        }
+
+        .text-green {
+            color: #00ff88;
+        }
+
+        a {
+            color: #00ff88;
+            text-decoration: none;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            /* glass-border match */
+            margin-bottom: 40px;
+        }
+
+        .logo-wrapper {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Zoom in to the logo text 2x, hiding the excessive whitespace */
+            transform: scale(2.0);
+            transform-origin: center;
+        }
+
+        /* Dynamic Content Section */
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .user-greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .dynamic-message {
+            color: #a0a0a0;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        /* Magazine Card (Glassmorphism) */
+        .magazine-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .magazine-tag {
+            display: inline-block;
+            background: #00ff88;
+            color: #0a0a0a;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .magazine-img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+        }
+
+        .magazine-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .magazine-desc {
+            color: #a0a0a0;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* Buttons */
+        .btn-glow {
+            display: inline-block;
+            background-color: #00ff88;
+            color: #0a0a0a;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            /* Box-shadow support varies in email clients, adding simplified fallback */
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .social-icons {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .social-link {
+            display: inline-block;
+            margin: 0 12px;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+
+        .footer-text {
+            color: #606060;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #606060;
+            margin: 0 10px;
+            font-size: 12px;
+        }
+
+        /* Mobile Responsive */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                width: 100% !important;
+                padding: 20px !important;
+            }
+
+            h1.title {
+                font-size: 36px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <!-- Logo Wrapper for Zoom/Crop effect -->
+            <div class="logo-wrapper">
+                <img src="./public/logo.jpeg" alt="K&G Logo" class="logo-img">
+            </div>
+        </div>
+
+        <!-- Dynamic Content Section -->
+        <div class="content-section">
+            <h1 class="title">HELLO <span class="accent-text">VISIONARY</span></h1>
+            <p class="user-greeting">Hi [Customer Name],</p>
+            <div class="dynamic-message">
+                <p>Here is the information you requested regarding our latest strategic initiatives. We believe this
+                    aligns perfectly with your goals for Q3.</p>
+                <br>
+                <p>We've curated a selection of insights specifically for you below.</p>
+            </div>
+        </div>
+
+        <!-- Magazine Teaser -->
+        <div class="magazine-card">
+            <!-- Magazine Cover Image -->
+            <img src="./public/kg-current-june.png" alt="K&G Current - January 2026" class="magazine-img">
+
+            <span class="magazine-tag">Latest Issue</span>
+            <h2 class="magazine-title">Social Commerce</h2>
+            <p class="magazine-desc">
+                Explore how the intersection of social media and e-commerce is redefining the digital marketplace.
+                From live shopping to creator-led brands, see what's next.
+            </p>
+            <a href="#" class="btn-glow">Read The Magazine</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="social-icons">
+                <!-- Instagram -->
+                <a href="https://instagram.com/kandgmarketing" target="_blank" class="social-link"
+                    aria-label="Instagram">
+                    <!-- Hosted Icon for Email Utility - Using Icons8 or similar for reliable rendering if we can't embed SVGs easily in all clients. 
+                         For this mockup, we are using a direct hosted image to ensure it shows up without needing to bundle attachments. -->
+                    <img src="https://img.icons8.com/ios-filled/50/00ff88/instagram-new.png" width="24" height="24"
+                        alt="IG" style="display:block;">
+                </a>
+                <!-- Facebook -->
+                <a href="https://facebook.com/kandgmarketing" target="_blank" class="social-link" aria-label="Facebook">
+                    <img src="https://img.icons8.com/ios-filled/50/00ff88/facebook-new.png" width="24" height="24"
+                        alt="FB" style="display:block;">
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/company/kandgmarketing" target="_blank" class="social-link"
+                    aria-label="LinkedIn">
+                    <img src="https://img.icons8.com/ios-filled/50/00ff88/linkedin.png" width="24" height="24" alt="LN"
+                        style="display:block;">
+                </a>
+                <!-- X -->
+                <a href="https://x.com/kandgmarketing" target="_blank" class="social-link" aria-label="X">
+                    <img src="https://img.icons8.com/ios-filled/50/00ff88/twitterx--v1.png" width="24" height="24"
+                        alt="X" style="display:block;">
+                </a>
+                <!-- TikTok -->
+                <a href="https://tiktok.com/@kandgmarketing" target="_blank" class="social-link" aria-label="TikTok">
+                    <img src="https://img.icons8.com/ios-filled/50/00ff88/tiktok--v1.png" width="24" height="24"
+                        alt="TT" style="display:block;">
+                </a>
+            </div>
+
+            <p class="footer-text">Made by K&G with <span style="color: #00ff88;">&hearts;</span> across 4 timezones</p>
+
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Unsubscribe</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
