@@ -153,23 +153,42 @@ const initContactForm = () => {
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerText;
 
-        // Simulate sending
+        // Prepare form data for Netlify
+        const formData = new FormData(form);
+
+        // UI Feedback
         submitBtn.innerText = 'Sending...';
         submitBtn.disabled = true;
 
-        setTimeout(() => {
-            submitBtn.innerText = '✓ Message Sent!';
-            submitBtn.style.background = 'var(--accent-blue)';
+        // Send to Netlify
+        fetch('/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+            .then(() => {
+                // Success
+                submitBtn.innerText = '✓ Message Sent!';
+                submitBtn.style.background = 'var(--accent-green)'; // Use green for success
+                form.reset();
 
-            // Reset form
-            form.reset();
+                setTimeout(() => {
+                    submitBtn.innerText = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            })
+            .catch((error) => {
+                console.error('Form submission error:', error);
+                submitBtn.innerText = 'Error. Try again.';
+                submitBtn.style.background = '#ff4444'; // Red for error
 
-            setTimeout(() => {
-                submitBtn.innerText = originalText;
-                submitBtn.style.background = '';
-                submitBtn.disabled = false;
-            }, 3000);
-        }, 1500);
+                setTimeout(() => {
+                    submitBtn.innerText = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            });
     });
 };
 
