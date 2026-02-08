@@ -695,6 +695,12 @@ blockquote {
   display: block;
 }
 
+.magazine-cover video {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+}
+
 .magazine-issue-tag {
   position: absolute;
   top: 15px;
