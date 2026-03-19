@@ -1,0 +1,12 @@
+# K&G Marketing Media - robots.txt
+# https://kgmarketingmedia.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kgmarketingmedia.com/sitemap.xml
+
+# Block non-public assets
+Disallow: /email-template.html
+Disallow: /email-packages.html

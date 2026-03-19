@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Packages & Pricing Sydney | K&G Marketing Media</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/services/css/style.css?v=17">
+    <style>
+        /* ── Page Layout ── */
+        .pkg-page {
+            background: var(--bg-dark);
+            min-height: 100vh;
+            padding-top: 100px;
+            padding-bottom: 120px;
+        }
+
+        .pkg-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ── Hero Header ── */
+        .pkg-hero {
+            position: relative;
+            text-align: center;
+            padding: 80px 0 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 80px;
+            overflow: hidden;
+        }
+
+        .pkg-hero-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+        }
+
+        .pkg-hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            line-height: 0.95;
+            letter-spacing: -1px;
+            color: var(--text-white);
+            margin-bottom: 24px;
+        }
+
+        .pkg-hero h1 span {
+            -webkit-text-stroke: 1.5px var(--accent-green);
+            color: transparent;
+        }
+
+        .pkg-hero p {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── Category ── */
+        .pkg-category {
+            margin-bottom: 80px;
+        }
+
+        .pkg-category-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .pkg-category-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            color: var(--text-white);
+            line-height: 1;
+        }
+
+        .pkg-category-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .pkg-category-tag {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            border: 1px solid rgba(0,255,136,0.25);
+            padding: 4px 10px;
+            border-radius: 3px;
+        }
+
+        /* ── Cards Grid ── */
+        .pkg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .pkg-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 8px;
+            padding: 28px 30px;
+            position: relative;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pkg-card:hover {
+            border-color: rgba(0,255,136,0.2);
+            box-shadow: 0 0 30px rgba(0,255,136,0.05);
+        }
+
+        .pkg-card.featured {
+            border-color: rgba(0,255,136,0.35);
+            box-shadow: 0 0 25px rgba(0,255,136,0.08);
+        }
+
+        .pkg-featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            padding: 3px 10px;
+            border-radius: 2px;
+            font-weight: 700;
+        }
+
+        .pkg-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 6px;
+        }
+
+        .pkg-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            color: var(--accent-green);
+            letter-spacing: 1px;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .pkg-price-note {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            font-family: var(--font-mono);
+            margin-bottom: 16px;
+        }
+
+        .pkg-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.06);
+            margin: 16px 0;
+        }
+
+        .pkg-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px;
+        }
+
+        .pkg-features li {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            padding: 5px 0;
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .pkg-features li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .pkg-cta {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 3px;
+            border: 1px solid rgba(0,255,136,0.4);
+            color: var(--accent-green);
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .pkg-cta:hover,
+        .pkg-card.featured .pkg-cta {
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            border-color: var(--accent-green);
+        }
+
+        /* ── Retainer Tag ── */
+        .pkg-retainer {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            color: rgba(0,255,136,0.7);
+            background: rgba(0,255,136,0.06);
+            border: 1px solid rgba(0,255,136,0.15);
+            padding: 3px 8px;
+            border-radius: 2px;
+            margin-bottom: 12px;
+        }
+
+        /* ── Custom CTA Section ── */
+        .pkg-custom {
+            text-align: center;
+            padding: 60px 40px;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 8px;
+            margin-top: 80px;
+            background: rgba(0,255,136,0.02);
+        }
+
+        .pkg-custom h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--text-white);
+            margin-bottom: 12px;
+        }
+
+        .pkg-custom h2 span {
+            color: var(--accent-green);
+        }
+
+        .pkg-custom p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 28px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .pkg-container { padding: 0 20px; }
+            .pkg-hero { padding: 50px 0 40px; }
+            .pkg-grid { grid-template-columns: 1fr; }
+            .pkg-hero h1 { font-size: 3.5rem; }
+        }
+    </style>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Transparent marketing packages for Sydney businesses. Choose from Starter, Growth, and Enterprise plans covering AI, SEO, social, creative, and automation.">
+  <link rel="canonical" href="https://kgmarketingmedia.com/services/packages.html">
+  <meta name="google-site-verification" content="dfWZT355Jhe8qrZELBqhUewWS6uSGVNNAdQ7aWTXo-8" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Marketing Packages & Pricing Sydney | K&G Marketing Media">
+  <meta property="og:description" content="Transparent marketing packages for Sydney businesses. Choose from Starter, Growth, and Enterprise plans covering AI, SEO, social, creative, and automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kgmarketingmedia.com/services/packages.html">
+  <meta property="og:image" content="https://kgmarketingmedia.com/logo.jpeg">
+  <meta property="og:site_name" content="K&G Marketing Media">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Marketing Packages & Pricing Sydney | K&G Marketing Media">
+  <meta name="twitter:description" content="Transparent marketing packages for Sydney businesses. Choose from Starter, Growth, and Enterprise plans covering AI, SEO, social, creative, and automation.">
+  <meta name="twitter:image" content="https://kgmarketingmedia.com/logo.jpeg">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":["Organization","LocalBusiness","MarketingAgency"],"@id":"https://kgmarketingmedia.com/#organization","name":"K&G Marketing Media","alternateName":"KG Marketing Media","url":"https://kgmarketingmedia.com","logo":"https://kgmarketingmedia.com/logo.jpeg","image":"https://kgmarketingmedia.com/logo.jpeg","description":"Sydney-based AI marketing agency offering voice AI agents, marketing automation, SEO, web design, and creative production for local businesses across Australia.","telephone":"+61424537300","email":"hello@kgmarketingmedia.com","address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-33.8688,"longitude":151.2093},"areaServed":[{"@type":"City","name":"Sydney"},{"@type":"State","name":"New South Wales"},{"@type":"Country","name":"Australia"}],"sameAs":["https://www.instagram.com/kgmarketingmedia/","https://www.facebook.com/profile.php?id=61587076917726","https://www.tiktok.com/@kg.marketing.medi","https://www.linkedin.com/in/sarah-kg-757b073b7/","https://x.com/kandgmarketing"],"priceRange":"$$","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:00"},"foundingDate":"2025","knowsAbout":["AI Marketing","Voice AI Agents","Marketing Automation","SEO","Social Media Marketing","Web Design","App Development","Media Buying","Creative Production","Digital Marketing"]}
+</script>
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/index.html"><img src="/services/assets/kg-logo.png" alt="K&G Marketing Media Agency" class="nav-logo"></a>
+            </div>
+            <div class="hamburger" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">AI & Automation</a></li>
+                <li><a href="social.html">Social & Influencer</a></li>
+                <li><a href="media-buying.html">Media Buying</a></li>
+                <li><a href="creative.html">Creative</a></li>
+                <li><a href="seo.html">SEO</a></li>
+                <li><a href="app-dev.html">Apps</a></li>
+                <li><a href="saas.html">SaaS</a></li>
+                <li><a href="/index.html#contact" class="btn-primary">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="pkg-page">
+        <div class="pkg-container">
+
+            <!-- Hero -->
+            <div class="pkg-hero">
+                <img src="/services/assets/kg-logo.png" alt="" aria-hidden="true" style="position:absolute;top:50%;right:5vw;transform:translateY(-50%);width:35vw;max-width:500px;opacity:0.08;pointer-events:none;z-index:1;filter:brightness(2);">
+                <p class="pkg-hero-label">Transparent Pricing</p>
+                <h1>PACKAGES &<br><span>PRICING</span></h1>
+                <p>Straightforward packages designed for businesses ready to scale. All packages include onboarding, dedicated account management, and monthly reporting.</p>
+            </div>
+
+            <!-- ── AI & Automation ── -->
+            <div class="pkg-category">
+                <div class="pkg-category-header">
+                    <h2 class="pkg-category-title">AI & Automation</h2>
+                    <div class="pkg-category-line"></div>
+                    <span class="pkg-category-tag">AI</span>
+                </div>
+                <div class="pkg-grid">
+                    <div class="pkg-card">
+                        <p class="pkg-name">Single Workflow</p>
+                        <p class="pkg-price">$2,500</p>
+                        <p class="pkg-price-note">setup + $499 / month</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>One custom automation (e.g. Lead → CRM + SMS)</li>
+                            <li>Integration with 2 platforms</li>
+                            <li>Testing & go-live support</li>
+                            <li>Monthly maintenance</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card featured">
+                        <span class="pkg-featured-badge">Most Popular</span>
+                        <p class="pkg-name">Business Bundle</p>
+                        <p class="pkg-price">$5,000</p>
+                        <p class="pkg-price-note">setup + $899 / month</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>3 custom automations</li>
+                            <li>Client onboarding, invoicing, social scheduling</li>
+                            <li>CRM + email + billing integration</li>
+                            <li>Priority support & monthly review</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card">
+                        <p class="pkg-name">AI Chatbot</p>
+                        <p class="pkg-price">$2,500</p>
+                        <p class="pkg-price-note">setup + $297 / month</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Custom-trained on your business data</li>
+                            <li>Handles FAQ, booking & lead qualification</li>
+                            <li>Website + WhatsApp deployment</li>
+                            <li>Live in 48–72 hours</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Social & Influencer ── -->
+            <div class="pkg-category">
+                <div class="pkg-category-header">
+                    <h2 class="pkg-category-title">Social & Influencer</h2>
+                    <div class="pkg-category-line"></div>
+                    <span class="pkg-category-tag">Monthly</span>
+                </div>
+                <div class="pkg-grid">
+                    <div class="pkg-card">
+                        <div class="pkg-retainer">Monthly Retainer</div>
+                        <p class="pkg-name">Starter</p>
+                        <p class="pkg-price">$2,500<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">3-month minimum</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>3 influencer partnerships / month</li>
+                            <li>Content calendar management</li>
+                            <li>Platform: TikTok or Instagram</li>
+                            <li>Monthly analytics report</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card featured">
+                        <span class="pkg-featured-badge">Most Popular</span>
+                        <div class="pkg-retainer">Monthly Retainer</div>
+                        <p class="pkg-name">Growth</p>
+                        <p class="pkg-price">$5,500<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">3-month minimum</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>8 influencer partnerships / month</li>
+                            <li>Multi-platform strategy (TikTok + Reels)</li>
+                            <li>Short-form content production</li>
+                            <li>Weekly performance calls</li>
+                            <li>Social commerce funnel setup</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card">
+                        <div class="pkg-retainer">Monthly Retainer</div>
+                        <p class="pkg-name">Enterprise</p>
+                        <p class="pkg-price">$12,000<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">Custom contract</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>20+ influencer activations / month</li>
+                            <li>Full-service campaign management</li>
+                            <li>Dedicated creative team</li>
+                            <li>Paid amplification strategy</li>
+                            <li>Real-time dashboard access</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Talk to Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Media Buying ── -->
+            <div class="pkg-category">
+                <div class="pkg-category-header">
+                    <h2 class="pkg-category-title">Media Buying</h2>
+                    <div class="pkg-category-line"></div>
+                    <span class="pkg-category-tag">Monthly</span>
+                </div>
+                <div class="pkg-grid">
+                    <div class="pkg-card">
+                        <div class="pkg-retainer">Monthly Retainer</div>
+                        <p class="pkg-name">Launch</p>
+                        <p class="pkg-price">$1,500<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">Up to $15K ad spend managed</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>1 platform (Meta or Google)</li>
+                            <li>Audience research & setup</li>
+                            <li>Campaign build & launch</li>
+                            <li>Bi-weekly optimisation</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card featured">
+                        <span class="pkg-featured-badge">Most Popular</span>
+                        <div class="pkg-retainer">Monthly Retainer</div>
+                        <p class="pkg-name">Scale</p>
+                        <p class="pkg-price">$3,500<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">Up to $50K ad spend managed</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Multi-platform (Meta + Google + TikTok)</li>
+                            <li>Lookalike & retargeting audiences</li>
+                            <li>Weekly optimisation & reporting</li>
+                            <li>Creative brief & ad copy</li>
+                            <li>CPA & ROAS targets</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card">
+                        <div class="pkg-retainer">Monthly Retainer</div>
+                        <p class="pkg-name">Dominate</p>
+                        <p class="pkg-price">7,500<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">$50K+ ad spend managed</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Omnichannel + programmatic</li>
+                            <li>First-party data strategy</li>
+                            <li>Daily monitoring & real-time adjustments</li>
+                            <li>Dedicated media buyer</li>
+                            <li>Quarterly strategy review</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Talk to Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Creative Production ── -->
+            <div class="pkg-category">
+                <div class="pkg-category-header">
+                    <h2 class="pkg-category-title">Creative Production</h2>
+                    <div class="pkg-category-line"></div>
+                    <span class="pkg-category-tag">Project</span>
+                </div>
+                <div class="pkg-grid">
+                    <div class="pkg-card">
+                        <p class="pkg-name">Brand Starter</p>
+                        <p class="pkg-price">$2,997</p>
+                        <p class="pkg-price-note">One-time project</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Logo + brand mark (3 concepts)</li>
+                            <li>Colour palette & typography system</li>
+                            <li>Business card & letterhead</li>
+                            <li>Brand guidelines PDF</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card featured">
+                        <span class="pkg-featured-badge">Best Value</span>
+                        <p class="pkg-name">Content Sprint</p>
+                        <p class="pkg-price">$4,997</p>
+                        <p class="pkg-price-note">Delivered in 2 weeks</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>5 ad creatives (static + video)</li>
+                            <li>1 brand / product video (60–90 sec)</li>
+                            <li>Full asset pack (all sizes & formats)</li>
+                            <li>2 revision rounds</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card">
+                        <p class="pkg-name">Campaign Production</p>
+                        <p class="pkg-price">$9,997</p>
+                        <p class="pkg-price-note">Full campaign asset suite</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Concept, scripting & storyboard</li>
+                            <li>Broadcast-quality video shoot</li>
+                            <li>Motion graphics & animation</li>
+                            <li>15+ formatted ad creatives</li>
+                            <li>Platform-optimised delivery</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Talk to Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── SEO ── -->
+            <div class="pkg-category">
+                <div class="pkg-category-header">
+                    <h2 class="pkg-category-title">SEO & Performance</h2>
+                    <div class="pkg-category-line"></div>
+                    <span class="pkg-category-tag">Monthly</span>
+                </div>
+                <div class="pkg-grid">
+                    <div class="pkg-card">
+                        <div class="pkg-retainer">Monthly Retainer</div>
+                        <p class="pkg-name">Foundation</p>
+                        <p class="pkg-price">$1,500<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">6-month minimum</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Technical SEO audit & fixes</li>
+                            <li>On-page optimisation (10 pages)</li>
+                            <li>Keyword research & mapping</li>
+                            <li>Monthly ranking report</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card featured">
+                        <span class="pkg-featured-badge">Most Popular</span>
+                        <div class="pkg-retainer">Monthly Retainer</div>
+                        <p class="pkg-name">Growth Engine</p>
+                        <p class="pkg-price">$3,000<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">6-month minimum</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Full technical SEO + Core Web Vitals</li>
+                            <li>Content strategy & 4 articles/month</li>
+                            <li>Link building (5 placements/month)</li>
+                            <li>CRO recommendations</li>
+                            <li>Competitor gap analysis</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card">
+                        <div class="pkg-retainer">Monthly Retainer</div>
+                        <p class="pkg-name">Authority</p>
+                        <p class="pkg-price">$6,000<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">Custom contract</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Enterprise technical SEO</li>
+                            <li>8+ content pieces / month</li>
+                            <li>Aggressive link acquisition</li>
+                            <li>Full CRO programme with A/B testing</li>
+                            <li>Weekly strategy calls</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Talk to Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── App Development ── -->
+            <div class="pkg-category">
+                <div class="pkg-category-header">
+                    <h2 class="pkg-category-title">App Development</h2>
+                    <div class="pkg-category-line"></div>
+                    <span class="pkg-category-tag">Project</span>
+                </div>
+                <div class="pkg-grid">
+                    <div class="pkg-card">
+                        <p class="pkg-name">MVP</p>
+                        <p class="pkg-price">from $9,997</p>
+                        <p class="pkg-price-note">Delivered in 6–8 weeks</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>UI/UX design (5–8 screens)</li>
+                            <li>React Native or Flutter build</li>
+                            <li>Core feature set only</li>
+                            <li>iOS + Android deployment</li>
+                            <li>App Store submission support</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card featured">
+                        <span class="pkg-featured-badge">Most Popular</span>
+                        <p class="pkg-name">Full Product</p>
+                        <p class="pkg-price">from $24,997</p>
+                        <p class="pkg-price-note">12–16 week delivery</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Full UI/UX design system</li>
+                            <li>Native iOS + Android build</li>
+                            <li>Backend API + admin dashboard</li>
+                            <li>Push notifications & analytics</li>
+                            <li>3 months post-launch support</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card">
+                        <p class="pkg-name">Ongoing Retainer</p>
+                        <p class="pkg-price">$3,500<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">Post-launch support & growth</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Dedicated developer (part-time)</li>
+                            <li>Feature releases & bug fixes</li>
+                            <li>Performance monitoring</li>
+                            <li>Store update management</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Talk to Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── SaaS Solutions ── -->
+            <div class="pkg-category">
+                <div class="pkg-category-header">
+                    <h2 class="pkg-category-title">SaaS Solutions</h2>
+                    <div class="pkg-category-line"></div>
+                    <span class="pkg-category-tag">Project</span>
+                </div>
+                <div class="pkg-grid">
+                    <div class="pkg-card">
+                        <p class="pkg-name">Discovery Sprint</p>
+                        <p class="pkg-price">$3,500</p>
+                        <p class="pkg-price-note">2-week engagement</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Product vision workshops</li>
+                            <li>Architecture blueprint</li>
+                            <li>Tech stack recommendation</li>
+                            <li>Detailed technical roadmap</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card featured">
+                        <span class="pkg-featured-badge">Best Value</span>
+                        <p class="pkg-name">SaaS Build</p>
+                        <p class="pkg-price">from $35,000</p>
+                        <p class="pkg-price-note">16–24 week delivery</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Multi-tenant architecture</li>
+                            <li>Custom admin dashboard</li>
+                            <li>Billing & subscription integration</li>
+                            <li>RESTful API + webhook system</li>
+                            <li>Role-based access control</li>
+                            <li>6 months post-launch support</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Talk to Us</a>
+                    </div>
+                    <div class="pkg-card">
+                        <div class="pkg-retainer">Monthly Retainer</div>
+                        <p class="pkg-name">Growth Support</p>
+                        <p class="pkg-price">$5,000<span style="font-size:1.2rem">/mo</span></p>
+                        <p class="pkg-price-note">For live SaaS products</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>Dedicated engineering team</li>
+                            <li>Feature development sprints</li>
+                            <li>Infrastructure scaling</li>
+                            <li>99.9% uptime monitoring</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Talk to Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Websites ── -->
+            <div class="pkg-category">
+                <div class="pkg-category-header">
+                    <h2 class="pkg-category-title">Websites</h2>
+                    <div class="pkg-category-line"></div>
+                    <span class="pkg-category-tag">Project</span>
+                </div>
+                <div class="pkg-grid">
+                    <div class="pkg-card">
+                        <p class="pkg-name">Landing Page</p>
+                        <p class="pkg-price">$997</p>
+                        <p class="pkg-price-note">Delivered in 2–3 days</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>High-converting single page</li>
+                            <li>Designed for ad campaigns</li>
+                            <li>Mobile responsive</li>
+                            <li>Basic analytics setup</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card featured">
+                        <span class="pkg-featured-badge">Most Popular</span>
+                        <p class="pkg-name">Business Starter</p>
+                        <p class="pkg-price">$2,497</p>
+                        <p class="pkg-price-note">Delivered in 7–10 days</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>5-page professional site</li>
+                            <li>Home, About, Services, Contact, Case Studies</li>
+                            <li>CMS integration</li>
+                            <li>SEO foundations</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                    <div class="pkg-card">
+                        <p class="pkg-name">Professional</p>
+                        <p class="pkg-price">$4,997</p>
+                        <p class="pkg-price-note">Delivered in 3–4 weeks</p>
+                        <div class="pkg-divider"></div>
+                        <ul class="pkg-features">
+                            <li>10 pages + blog setup</li>
+                            <li>Full SEO optimisation</li>
+                            <li>Custom animations & interactions</li>
+                            <li>Performance & Core Web Vitals tuned</li>
+                        </ul>
+                        <a href="/index.html#contact" class="pkg-cta">Get Started</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom CTA -->
+            <div class="pkg-custom">
+                <h2>NEED SOMETHING <span>CUSTOM?</span></h2>
+                <p>Most of our best work is bespoke. Tell us what you're building and we'll put together a tailored proposal.</p>
+                <a href="/index.html#contact" class="btn-glow">Book a Consultation</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
