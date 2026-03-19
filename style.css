@@ -884,6 +884,48 @@ blockquote {
   animation: shimmer 2s linear infinite;
 }
 
+/* Hero accent — green-to-blue gradient with shadow (matches service pages) */
+.hero-accent {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05em;
+  font-weight: 900;
+  position: relative;
+  letter-spacing: -2px;
+  transform: skewX(-5deg);
+  display: inline-block;
+  z-index: 2;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gradient text layer (Front) */
+.hero-accent::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px black;
+}
+
+/* Solid Green Shadow layer (Back) */
+.hero-accent::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  z-index: 1;
+  color: var(--accent-green);
+  -webkit-text-fill-color: var(--accent-green);
+  -webkit-text-stroke: 1.5px black;
+  background: none;
+}
+
 /* Floating animation for service icons */
 /* Floating animation for service icons */
 .service-icon {
@@ -1240,4 +1282,123 @@ blockquote {
   background: var(--accent-green);
   color: #000;
   box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+/* ── Screen-reader only (SEO keyword text) ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── SEO Accordion (collapsible) ── */
+.seo-accordion {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
+
+.seo-accordion summary {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--accent-green);
+  cursor: pointer;
+  padding: 12px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 1px;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.seo-accordion summary:hover { opacity: 1; }
+.seo-accordion summary::-webkit-details-marker { display: none; }
+.seo-accordion summary::after { content: '+'; font-size: 1.2rem; margin-left: auto; }
+.seo-accordion[open] summary::after { content: '−'; }
+
+/* ── SEO Content Sections ── */
+.seo-content {
+  padding: 20px 0;
+}
+
+.seo-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--text-white);
+  margin-bottom: 12px;
+}
+
+.seo-content h3 {
+  font-size: 1.1rem;
+  color: var(--text-white);
+  margin: 16px 0 6px;
+}
+
+.seo-content p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-gray);
+  margin-bottom: 10px;
+}
+
+.seo-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+
+.seo-content ul li {
+  font-size: 0.88rem;
+  color: var(--text-gray);
+  padding: 3px 0 3px 16px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.seo-content ul li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--accent-green);
+  font-weight: 700;
+}
+
+/* ── FAQ Section ── */
+.faq-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 40px;
+}
+
+.faq-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--text-white);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 12px 0;
+}
+
+.faq-item h3 {
+  font-size: 1rem;
+  color: var(--text-white);
+  margin-bottom: 4px;
+}
+
+.faq-item p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-gray);
 }
