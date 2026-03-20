@@ -75,7 +75,7 @@
 /* Media Queries */
 @media (max-width: 768px) {
     .desktop-nav {
-        display: none;
+        display: none !important;
     }
 
     .hamburger-menu {
@@ -83,7 +83,12 @@
     }
 
     .nav-container {
-        padding: 0 20px;
+        padding: 0 15px;
+    }
+
+    /* Scale logo down for mobile */
+    .brand-logo {
+        height: 55px;
     }
 
     .section-title {
@@ -91,17 +96,29 @@
     }
 
     .container {
-        padding: 0 20px;
+        padding: 0 15px;
+        overflow-x: hidden;
+    }
+
+    /* Prevent horizontal overflow */
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .work-card {
+        max-width: 100%;
     }
 
     /* Hero Typography Fix */
     h1 {
-        font-size: 2.8rem;
-        line-height: 1.1;
+        font-size: 3.5rem;
+        line-height: 1.05;
+        letter-spacing: 2px;
     }
 
     .hero-content {
-        padding: 120px 20px 0 20px;
+        padding: 100px 15px 0 15px;
     }
 
     /* Magazine Section Mobile Fix */
@@ -148,9 +165,14 @@
         grid-template-columns: 1fr;
     }
 
-    /* Work Grid Mobile */
-    .work-grid {
-        grid-template-columns: 1fr;
+    /* Service Cards Mobile */
+    .service-card {
+        padding: 25px;
+    }
+
+    /* SEO Accordion Mobile */
+    .seo-accordion {
+        padding: 15px 0;
     }
 
     /* Stats Section Mobile */
@@ -180,7 +202,7 @@
 /* Extra Small Screens (Portrait phones like iPhone SE) */
 @media (max-width: 400px) {
     h1 {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
     }
 
     .section-title {
