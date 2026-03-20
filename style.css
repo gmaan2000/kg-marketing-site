@@ -411,6 +411,11 @@ section {
   overflow: hidden;
 }
 
+.work-img img {
+  transform: scale(1.08);
+  transform-origin: top left;
+}
+
 .work-tag {
   position: absolute;
   bottom: 15px;
@@ -1205,8 +1210,9 @@ blockquote {
   max-width: 100%;
   max-height: 80vh;
   object-fit: contain;
-  transform: scale(1.04);
-  /* Zoom to hide watermarks */
+  transform: scale(1.08);
+  transform-origin: top left;
+  /* Zoom to crop out bottom-right watermarks */
   transform-origin: center;
 }
 
