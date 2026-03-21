@@ -303,27 +303,7 @@
     display: block;
 }
 
-/* Hide AI watermarks in bottom-right corner */
-.article-hero::after,
-.article-card-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, transparent 40%, var(--bg-dark, #0a0a0a) 100%);
-    z-index: 2;
-    pointer-events: none;
-}
-
-.article-hero {
-    position: relative;
-}
-
-.article-card-image {
-    position: relative;
-}
+/* Images are cropped to remove watermarks — no CSS overlay needed */
 
 .article-hero-placeholder {
     width: 100%;
