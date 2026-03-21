@@ -121,6 +121,44 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- February 2026 Archive -->
+  <url>
+    <loc>https://kgmarketingmedia.com/magazine-february-2026.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- March 2026 Articles -->
+  <url>
+    <loc>https://kgmarketingmedia.com/article-mar-ai-search.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kgmarketingmedia.com/article-mar-social-strategies.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kgmarketingmedia.com/article-mar-web-design.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kgmarketingmedia.com/article-mar-ad-waste.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kgmarketingmedia.com/article-mar-choosing-agency.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Location Pages -->
   <url>
     <loc>https://kgmarketingmedia.com/locations/western-sydney.html</loc>

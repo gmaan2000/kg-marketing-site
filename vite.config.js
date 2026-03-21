@@ -22,6 +22,12 @@ export default defineConfig({
                 'article-feb-chatbot-vs-voice': resolve(__dirname, 'article-feb-chatbot-vs-voice.html'),
                 'article-feb-google-business': resolve(__dirname, 'article-feb-google-business.html'),
                 'article-feb-hospitality-automation': resolve(__dirname, 'article-feb-hospitality-automation.html'),
+                'magazine-february-2026': resolve(__dirname, 'magazine-february-2026.html'),
+                'article-mar-ai-search': resolve(__dirname, 'article-mar-ai-search.html'),
+                'article-mar-social-strategies': resolve(__dirname, 'article-mar-social-strategies.html'),
+                'article-mar-web-design': resolve(__dirname, 'article-mar-web-design.html'),
+                'article-mar-ad-waste': resolve(__dirname, 'article-mar-ad-waste.html'),
+                'article-mar-choosing-agency': resolve(__dirname, 'article-mar-choosing-agency.html'),
                 // Services pages
                 'services-ai': resolve(__dirname, 'services/index.html'),
                 'services-social': resolve(__dirname, 'services/social.html'),
