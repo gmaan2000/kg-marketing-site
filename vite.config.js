@@ -16,6 +16,12 @@ export default defineConfig({
                 'article-connected-tv': resolve(__dirname, 'article-connected-tv.html'),
                 'article-short-form-video': resolve(__dirname, 'article-short-form-video.html'),
                 'article-social-commerce': resolve(__dirname, 'article-social-commerce.html'),
+                'magazine-january-2026': resolve(__dirname, 'magazine-january-2026.html'),
+                'article-feb-voice-ai': resolve(__dirname, 'article-feb-voice-ai.html'),
+                'article-feb-local-seo': resolve(__dirname, 'article-feb-local-seo.html'),
+                'article-feb-chatbot-vs-voice': resolve(__dirname, 'article-feb-chatbot-vs-voice.html'),
+                'article-feb-google-business': resolve(__dirname, 'article-feb-google-business.html'),
+                'article-feb-hospitality-automation': resolve(__dirname, 'article-feb-hospitality-automation.html'),
                 // Services pages
                 'services-ai': resolve(__dirname, 'services/index.html'),
                 'services-social': resolve(__dirname, 'services/social.html'),
