@@ -28,6 +28,10 @@ export default defineConfig({
                 'article-mar-web-design': resolve(__dirname, 'article-mar-web-design.html'),
                 'article-mar-ad-waste': resolve(__dirname, 'article-mar-ad-waste.html'),
                 'article-mar-choosing-agency': resolve(__dirname, 'article-mar-choosing-agency.html'),
+                // SEO blog articles
+                'article-voice-ai-receptionist-restaurants': resolve(__dirname, 'article-voice-ai-receptionist-restaurants.html'),
+                'article-ai-small-business-marketing': resolve(__dirname, 'article-ai-small-business-marketing.html'),
+                'article-marketing-automation-local-business': resolve(__dirname, 'article-marketing-automation-local-business.html'),
                 // Services pages
                 'services-ai': resolve(__dirname, 'services/index.html'),
                 'services-social': resolve(__dirname, 'services/social.html'),
