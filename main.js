@@ -370,6 +370,37 @@ const initGallery = () => {
     });
 };
 
+// Lazy-load magazine video to avoid 16MB initial page load
+const initLazyVideo = () => {
+    const magazineSection = document.getElementById('magazine');
+    if (!magazineSection) return;
+
+    const video = magazineSection.querySelector('video');
+    if (!video) return;
+
+    const source = video.querySelector('source');
+    if (!source) return;
+
+    // Store the src and remove it so it doesn't load immediately
+    const videoSrc = source.getAttribute('src');
+    source.removeAttribute('src');
+    video.removeAttribute('autoplay');
+    video.load(); // Reset the video element
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                source.setAttribute('src', videoSrc);
+                video.load();
+                video.play().catch(err => console.log('Video autoplay prevented:', err));
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '200px' });
+
+    observer.observe(magazineSection);
+};
+
 // Mobile Navigation Toggle
 const initMobileNav = () => {
     const hamburger = document.querySelector('.hamburger-menu');
@@ -408,6 +439,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initTypewriter();
     initMobileNav();
     initGallery();
+    initLazyVideo();
 
     // Initialize Flickering Grid Background
     try {
