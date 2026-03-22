@@ -8,11 +8,14 @@
   <title>AI Marketing Agency Sydney | K&G Marketing & Media</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700;900&family=Quicksand:wght@700&family=Righteous&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700;900&family=Quicksand:wght@700&family=Righteous&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700;900&family=Quicksand:wght@700&family=Righteous&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700;900&family=Quicksand:wght@700&family=Righteous&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./mobile.css">
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="/services/assets/kg-logo.png">
+  <link rel="preload" as="video" href="/hero-video.mp4" type="video/mp4">
   <!-- SEO Meta Tags -->
   <meta name="description" content="K&G Marketing Media is a Sydney-based AI marketing agency offering voice AI agents, marketing automation, SEO, web design, and creative production for local businesses across Australia.">
   <link rel="canonical" href="https://kgmarketingmedia.com/">
@@ -40,7 +43,7 @@
   <nav class="glass-nav">
     <div class="nav-container">
       <div class="logo">
-        <a href="./index.html"><img src="/services/assets/kg-logo.png" alt="K&G Marketing Media Agency" class="brand-logo" /></a>
+        <a href="./index.html"><img src="/services/assets/kg-logo.png" alt="K&G Marketing Media Agency" class="brand-logo" width="341" height="400" /></a>
       </div>
       <ul class="nav-links desktop-nav">
         <li><a href="./index.html#services">Services</a></li>
@@ -66,13 +69,13 @@
 
   <section class="hero">
     <div class="hero-videos">
-      <video autoplay muted loop playsinline class="hero-video" data-delay="0" poster="/logo.jpeg">
+      <video autoplay muted loop playsinline class="hero-video" data-delay="0" poster="/hero-poster.jpg">
         <source src="/hero-video.mp4" type="video/mp4">
       </video>
-      <video autoplay muted loop playsinline class="hero-video" data-delay="2" poster="/logo.jpeg">
+      <video autoplay muted loop playsinline class="hero-video" data-delay="2" poster="/hero-poster.jpg">
         <source src="/hero-video.mp4" type="video/mp4">
       </video>
-      <video autoplay muted loop playsinline class="hero-video" data-delay="4" poster="/logo.jpeg">
+      <video autoplay muted loop playsinline class="hero-video" data-delay="4" poster="/hero-poster.jpg">
         <source src="/hero-video.mp4" type="video/mp4">
       </video>
     </div>
@@ -91,19 +94,19 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item">
-          <h3 class="stat-number">4</h3>
+          <div class="stat-number" aria-hidden="true">4</div>
           <p class="stat-label">Global Offices</p>
         </div>
         <div class="stat-item">
-          <h3 class="stat-number">120+</h3>
+          <div class="stat-number" aria-hidden="true">120+</div>
           <p class="stat-label">Campaigns</p>
         </div>
         <div class="stat-item">
-          <h3 class="stat-number">98%</h3>
+          <div class="stat-number" aria-hidden="true">98%</div>
           <p class="stat-label">Retention</p>
         </div>
         <div class="stat-item">
-          <h3 class="stat-number">30+</h3>
+          <div class="stat-number" aria-hidden="true">30+</div>
           <p class="stat-label">SaaS Platforms</p>
         </div>
       </div>
@@ -200,7 +203,10 @@
         <div class="work-card" data-url="https://labelexclusive.com"
           data-gallery="/label-urban-art.jpg,/label-times-square.jpg,/label-model.jpg,/label-logo-gold.jpg,/label-logo-marble.jpg,/label-logo-black.jpg,/label-subway.png">
           <div class="work-img">
-            <img src="/label-times-square.jpg" alt="LABEL Exclusive brand strategy — Times Square billboard campaign by K&G Marketing Sydney" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            <picture>
+              <source srcset="/label-times-square.webp" type="image/webp">
+              <img src="/label-times-square.jpg" alt="LABEL Exclusive brand strategy — Times Square billboard campaign by K&G Marketing Sydney" loading="lazy" width="682" height="1024" style="width:100%;height:100%;object-fit:cover;">
+            </picture>
             <span class="work-tag">LABEL</span>
           </div>
           <div class="work-info">
@@ -211,7 +217,10 @@
         <div class="work-card" data-url="https://brokenbaybrewing.com.au"
           data-gallery="/broken-bay-poster.jpg,/broken-bay-can.jpg,/broken-bay-glass.jpg">
           <div class="work-img">
-            <img src="/broken-bay-can.jpg" alt="Broken Bay Brewing craft beer branding and packaging design by K&G Marketing Sydney" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            <picture>
+              <source srcset="/broken-bay-can.webp" type="image/webp">
+              <img src="/broken-bay-can.jpg" alt="Broken Bay Brewing craft beer branding and packaging design by K&G Marketing Sydney" loading="lazy" width="682" height="1024" style="width:100%;height:100%;object-fit:cover;">
+            </picture>
             <span class="work-tag">Broken Bay Brewing</span>
           </div>
           <div class="work-info">
@@ -222,7 +231,10 @@
         <div class="work-card"
           data-gallery="/holy-combo.png,/holy-sangrita-bottle.jpg,/holy-verdita-bottle.jpg,/holy-sangrita-labels.jpg">
           <div class="work-img">
-            <img src="/holy-combo.png" alt="Holy Sangrita and Verdita product launch — packaging design by K&G Marketing Sydney" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            <picture>
+              <source srcset="/holy-combo.webp" type="image/webp">
+              <img src="/holy-combo.png" alt="Holy Sangrita and Verdita product launch — packaging design by K&G Marketing Sydney" loading="lazy" width="720" height="480" style="width:100%;height:100%;object-fit:cover;">
+            </picture>
             <span class="work-tag">Holy Sangrita & Verdita</span>
           </div>
           <div class="work-info">
@@ -233,7 +245,10 @@
         <div class="work-card"
           data-gallery="/doggo-go-app-store.png,/doggo-go-ui-flow.png,/doggo-go-social.png,/doggo-go-architecture.jpg">
           <div class="work-img">
-            <img src="/doggo-go-app-store.png" alt="DOGGO GO mobile app development — UI design and App Store listing by K&G Marketing Sydney" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            <picture>
+              <source srcset="/doggo-go-app-store.webp" type="image/webp">
+              <img src="/doggo-go-app-store.png" alt="DOGGO GO mobile app development — UI design and App Store listing by K&G Marketing Sydney" loading="lazy" width="720" height="392" style="width:100%;height:100%;object-fit:cover;">
+            </picture>
             <span class="work-tag">DOGGO GO</span>
           </div>
           <div class="work-info">
@@ -244,7 +259,10 @@
         <div class="work-card"
           data-gallery="/czysta-woda-tetra.png,/sila-bottle.png,/czysta-woda-bottle.jpg,/tropik-can.jpg,/tropik-carton.jpg">
           <div class="work-img">
-            <img src="/czysta-woda-tetra.png" alt="Coco Polska beverage market expansion — product design by K&G Marketing Sydney" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            <picture>
+              <source srcset="/czysta-woda-tetra.webp" type="image/webp">
+              <img src="/czysta-woda-tetra.png" alt="Coco Polska beverage market expansion — product design by K&G Marketing Sydney" loading="lazy" width="720" height="720" style="width:100%;height:100%;object-fit:cover;">
+            </picture>
             <span class="work-tag">Coco Polska</span>
           </div>
           <div class="work-info">
@@ -255,7 +273,10 @@
         <div class="work-card" data-url="https://drinkhoxton.com"
           data-gallery="/hoxton-lifestyle-group.png,/hoxton-tropical-gin.png,/hoxton-range.png,/hoxton-gerry.png,/hoxton-lifestyle-couple.png">
           <div class="work-img">
-            <img src="/hoxton-lifestyle-group.png" alt="Hoxton Spirits digital marketing and SEO campaign by K&G Marketing Sydney" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            <picture>
+              <source srcset="/hoxton-lifestyle-group.webp" type="image/webp">
+              <img src="/hoxton-lifestyle-group.png" alt="Hoxton Spirits digital marketing and SEO campaign by K&G Marketing Sydney" loading="lazy" width="1024" height="524" style="width:100%;height:100%;object-fit:cover;">
+            </picture>
             <span class="work-tag">Hoxton Spirits</span>
           </div>
           <div class="work-info">
@@ -269,14 +290,14 @@
 
   <!-- Gallery Modal -->
   <div id="gallery-modal" class="gallery-modal hide">
-    <button class="gallery-close">&times;</button>
-    <button class="gallery-prev">&#10094;</button>
+    <button class="gallery-close" aria-label="Close gallery">&times;</button>
+    <button class="gallery-prev" aria-label="Previous image">&#10094;</button>
     <div class="gallery-content">
       <div class="gallery-crop-container">
         <img src="" alt="Project Image" class="gallery-image">
       </div>
     </div>
-    <button class="gallery-next">&#10095;</button>
+    <button class="gallery-next" aria-label="Next image">&#10095;</button>
   </div>
   </div>
   </div>
@@ -346,21 +367,26 @@
         <h2 class="section-title">Let's Build Something Great</h2>
         <form class="contact-form" name="contact" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="contact" />
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <select name="inquiry-type">
-            <option>Inquiry Type</option>
+          <label for="contact-name" class="sr-only">Name</label>
+          <input type="text" name="name" id="contact-name" placeholder="Name" required>
+          <label for="contact-email" class="sr-only">Email</label>
+          <input type="email" name="email" id="contact-email" placeholder="Email" required>
+          <label for="inquiry-type" class="sr-only">Inquiry Type</label>
+          <select name="inquiry-type" id="inquiry-type">
+            <option value="">Inquiry Type</option>
             <option>Media Buying</option>
             <option>Creative</option>
             <option>Tech/SaaS</option>
           </select>
-          <select name="budget">
-            <option>Estimated Budget</option>
+          <label for="budget" class="sr-only">Estimated Budget</label>
+          <select name="budget" id="budget">
+            <option value="">Estimated Budget</option>
             <option>$10K</option>
             <option>$100K</option>
             <option>$500K+</option>
           </select>
-          <textarea name="message" placeholder="Your Message"></textarea>
+          <label for="contact-message" class="sr-only">Your Message</label>
+          <textarea name="message" id="contact-message" placeholder="Your Message"></textarea>
           <button type="submit" class="btn-glow">Send Message</button>
         </form>
       </div>
@@ -421,7 +447,7 @@
 
   <footer class="main-footer">
     <div class="container footer-content">
-      <div class="footer-logo"><img src="/logo.jpeg" alt="K&G" class="footer-logo-img"></div>
+      <div class="footer-logo"><img src="/logo.jpeg" alt="K&G" class="footer-logo-img" width="1024" height="1024"></div>
       <p class="footer-tagline">Made by K&G with <span class="cyber-heart"><svg viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="1.5">
             <path

@@ -43,6 +43,7 @@ body::before {
   background-size: 50px 50px;
   animation: gridMove 20s linear infinite;
   opacity: 0.6;
+  will-change: transform;
 }
 
 @keyframes gridMove {
@@ -70,7 +71,7 @@ h3,
   width: 100%;
   padding: 20px 0;
   background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(15px) saturate(150%);
   z-index: 1000;
   border-bottom: 1px solid var(--glass-border);
 }
@@ -769,6 +770,7 @@ blockquote {
   mix-blend-mode: difference;
   transition: transform 0.1s ease-out;
   transform: translate(-50%, -50%);
+  will-change: left, top, transform;
 }
 
 .cursor-hover {
@@ -1083,8 +1085,6 @@ blockquote {
 /* Gradient background animation for about section */
 .about-section {
   background: linear-gradient(135deg, rgba(0, 255, 136, 0.02) 0%, rgba(0, 187, 255, 0.02) 100%);
-  background-size: 200% 200%;
-  animation: gradientShift 10s ease infinite;
 }
 
 /* Glass card hover glow */
@@ -1406,4 +1406,26 @@ blockquote {
   font-size: 0.88rem;
   line-height: 1.6;
   color: var(--text-gray);
+}
+
+/* Performance: contain layout for major sections */
+.stats-section,
+.services-section,
+.work-section,
+.magazine-section,
+.about-section,
+.approach-section,
+.contact-section {
+  contain: layout;
+}
+
+/* Accessibility: respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+  .service-icon { animation: none; }
+  .btn-glow { animation: none; }
+  .social-icon svg { animation: none; }
+  .cyber-heart svg { animation: none; }
+  .cursor-follower { display: none; }
+  body { cursor: auto; }
 }

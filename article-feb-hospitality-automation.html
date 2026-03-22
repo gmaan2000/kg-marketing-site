@@ -8,11 +8,12 @@
     <title>Marketing Automation for Hospitality: Set It and Forget It | K&G Current</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700;900&family=Quicksand:wght@700&display=swap"
-        rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700;900&family=Quicksand:wght@700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700;900&family=Quicksand:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400&family=Playfair+Display:wght@700;900&family=Quicksand:wght@700&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./magazine.css">
+    <link rel="stylesheet" href="./mobile.css">
   <!-- SEO Meta Tags -->
   <meta name="description" content="Marketing automation for Sydney hospitality businesses. Discover how restaurants, cafes, and hotels save 15+ hours per week with automated email sequences, review requests, and booking reminders.">
   <meta name="keywords" content="marketing automation sydney, best marketing agency for hospitality sydney, hospitality marketing automation, restaurant marketing automation, hotel marketing sydney">
@@ -46,16 +47,29 @@
     <nav class="glass-nav">
         <div class="nav-container">
             <div class="logo">
-                <a href="./index.html"><img src="/services/assets/kg-logo.png" alt="K&G Marketing Media Agency" class="brand-logo" /></a>
+                <a href="./index.html"><img src="/services/assets/kg-logo.png" alt="K&G Marketing Media Agency" class="brand-logo" width="341" height="400" /></a>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links desktop-nav">
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./index.html#services">Services</a></li>
                 <li><a href="./magazine.html">Magazine</a></li>
                 <li><a href="./index.html#contact" class="btn-primary">Contact</a></li>
             </ul>
-        </div>
-    </nav>
+                <button class="hamburger-menu" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#services">Services</a></li>
+            <li><a href="./magazine.html">Magazine</a></li>
+            <li><a href="./index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
     <header class="magazine-header">
         <div class="container">
@@ -71,7 +85,7 @@
         <div class="container">
 
             <div class="article-hero">
-                <img src="/hero-hospitality-automation.jpg" alt="Cyberpunk gears with wine glass - Marketing automation for hospitality" loading="lazy">
+                <img src="/hero-hospitality-automation.jpg" alt="Cyberpunk gears with wine glass - Marketing automation for hospitality" loading="lazy" width="2652" height="1436">
             </div>
 
             <article class="featured-article" style="margin-bottom: 0;">
@@ -156,7 +170,7 @@
 
     <footer class="main-footer">
         <div class="container footer-content">
-            <div class="footer-logo"><img src="/logo.jpeg" alt="K&G" class="footer-logo-img"></div>
+            <div class="footer-logo"><img src="/logo.jpeg" alt="K&G" class="footer-logo-img" width="1024" height="1024"></div>
             <p class="footer-tagline">Made by K&G with <span class="cyber-heart"><svg viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="1.5">
                         <path

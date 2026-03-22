@@ -39,26 +39,51 @@ const initSmoothScroll = () => {
     });
 };
 
-// Custom Cursor Follower with smooth interpolation
+// Custom Cursor Follower with smooth interpolation (throttled to 30fps, pauses when idle)
 const initCustomCursor = () => {
     const cursor = document.querySelector('.cursor-follower');
+
+    // Disable on touch devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        if (cursor) cursor.style.display = 'none';
+        return;
+    }
+
     let mouseX = 0, mouseY = 0;
     let cursorX = 0, cursorY = 0;
+    let cursorAnimating = false;
+    let lastCursorFrame = 0;
+    const CURSOR_FRAME_INTERVAL = 33; // ~30fps
 
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
+        // Restart animation loop if it was paused
+        if (!cursorAnimating) {
+            cursorAnimating = true;
+            lastCursorFrame = 0;
+            requestAnimationFrame(animateCursor);
+        }
     });
 
-    // Smooth cursor animation loop
-    const animateCursor = () => {
-        cursorX += (mouseX - cursorX) * 0.4;
-        cursorY += (mouseY - cursorY) * 0.4;
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
+    // Smooth cursor animation loop — throttled to 30fps, stops when idle
+    const animateCursor = (timestamp) => {
+        if (timestamp - lastCursorFrame >= CURSOR_FRAME_INTERVAL) {
+            lastCursorFrame = timestamp;
+            cursorX += (mouseX - cursorX) * 0.4;
+            cursorY += (mouseY - cursorY) * 0.4;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+        }
+
+        // Stop loop when cursor has caught up
+        if (Math.abs(mouseX - cursorX) < 0.5 && Math.abs(mouseY - cursorY) < 0.5) {
+            cursorAnimating = false;
+            return;
+        }
+
         requestAnimationFrame(animateCursor);
     };
-    animateCursor();
 
     // Cursor scaling on interactive elements
     const hoverElements = document.querySelectorAll('a, button, .service-card, .work-card, input, textarea, select');
@@ -109,35 +134,49 @@ const animateCounters = () => {
     counters.forEach(counter => observer.observe(counter));
 };
 
-// Parallax effect on hero videos
+// Parallax effect on hero videos (RAF-debounced)
 const initParallax = () => {
     const heroVideos = document.querySelector('.hero-videos');
     const heroOverlay = document.querySelector('.hero-overlay');
 
     if (!heroVideos) return;
 
+    let ticking = false;
     window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        const heroHeight = window.innerHeight;
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                const heroHeight = window.innerHeight;
 
-        if (scrollY <= heroHeight) {
-            // Parallax: videos move slower than scroll
-            heroVideos.style.transform = `translateY(${scrollY * 0.3}px)`;
-            // Fade overlay as user scrolls
-            heroOverlay.style.opacity = 0.8 + (scrollY / heroHeight) * 0.2;
+                if (scrollY <= heroHeight) {
+                    // Parallax: videos move slower than scroll
+                    heroVideos.style.transform = `translateY(${scrollY * 0.3}px)`;
+                    // Fade overlay as user scrolls
+                    heroOverlay.style.opacity = 0.8 + (scrollY / heroHeight) * 0.2;
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 };
 
-// Nav background opacity on scroll
+// Nav background opacity on scroll (RAF-debounced)
 const initNavScroll = () => {
     const nav = document.querySelector('.glass-nav');
 
+    let ticking = false;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            nav.style.background = 'rgba(10, 10, 10, 0.95)';
-        } else {
-            nav.style.background = 'rgba(10, 10, 10, 0.6)';
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                if (window.scrollY > 100) {
+                    nav.style.background = 'rgba(10, 10, 10, 0.95)';
+                } else {
+                    nav.style.background = 'rgba(10, 10, 10, 0.6)';
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 };
@@ -192,26 +231,36 @@ const initContactForm = () => {
     });
 };
 
-// Tilt effect on work cards
+// Tilt effect on work cards (RAF-throttled)
 const initTiltEffect = () => {
     const cards = document.querySelectorAll('.work-card, .service-card');
 
     cards.forEach(card => {
+        let tiltRAF = null;
+
         card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            if (tiltRAF) return; // skip if a frame is already queued
+            tiltRAF = requestAnimationFrame(() => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
 
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                tiltRAF = null;
+            });
         });
 
         card.addEventListener('mouseleave', () => {
+            if (tiltRAF) {
+                cancelAnimationFrame(tiltRAF);
+                tiltRAF = null;
+            }
             card.style.transform = '';
         });
     });
@@ -236,9 +285,9 @@ const initWorldClock = () => {
         });
     };
 
-    // Update immediately and then every second
+    // Update immediately and then every 30s (display shows HH:MM, no seconds)
     updateClocks();
-    setInterval(updateClocks, 1000);
+    setInterval(updateClocks, 30000);
 };
 
 // Typewriter effect on hover for subtitle

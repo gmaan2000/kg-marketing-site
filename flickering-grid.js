@@ -1,8 +1,8 @@
 // Flickering Grid Background Effect
 let gridSquares = [];
 const GRID_SIZE = 50; // matches CSS grid size
-const FLICKER_INTERVAL = 200; // ms between flicker updates (halved speed)
-const ACTIVE_SQUARES = 20; // number of squares lit at once
+const FLICKER_INTERVAL = 500; // ms between flicker updates (reduced for perf)
+const ACTIVE_SQUARES = 12; // number of squares lit at once (reduced for perf)
 
 export function initFlickeringGrid() {
     // Create grid overlay
