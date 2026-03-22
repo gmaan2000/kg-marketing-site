@@ -1,10 +1,35 @@
 /* K&G Current Magazine Styles */
 
 .magazine-header {
+    position: relative;
+    overflow: hidden;
     padding: 180px 0 80px;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, rgba(0, 255, 136, 0.05) 100%);
+    background: var(--bg-dark);
     text-align: center;
     border-bottom: 1px solid var(--glass-border);
+}
+
+.magazine-header-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    z-index: 0;
+}
+
+.magazine-header-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 5, 0.6);
+    z-index: 1;
+}
+
+.magazine-header .container {
+    position: relative;
+    z-index: 2;
 }
 
 .magazine-masthead {
@@ -26,14 +51,57 @@
 }
 
 .magazine-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8rem;
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.magazine-accent {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05em;
     font-weight: 900;
-    margin-bottom: 15px;
-    background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+    position: relative;
+    letter-spacing: -2px;
+    transform: skewX(-5deg);
+    display: block;
+    text-align: center;
+    margin-left: 0.5em;
+    z-index: 2;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Gradient text layer (Front) */
+.magazine-accent::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
     -webkit-background-clip: text;
     background-clip: text;
+    color: transparent;
     -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px black;
+}
+
+/* Solid green shadow layer (Back) */
+.magazine-accent::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    z-index: 1;
+    color: var(--accent-green);
+    -webkit-text-fill-color: var(--accent-green);
+    -webkit-text-stroke: 1.5px black;
+    background: none;
 }
 
 .magazine-subtitle {
@@ -444,8 +512,13 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .magazine-header-video {
+        display: none;
+    }
+
     .magazine-header {
         padding: 140px 0 60px;
+        background: linear-gradient(135deg, var(--bg-dark) 0%, rgba(0, 255, 136, 0.05) 100%);
     }
 
     .magazine-title {
