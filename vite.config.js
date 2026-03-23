@@ -32,6 +32,10 @@ export default defineConfig({
                 'article-voice-ai-receptionist-restaurants': resolve(__dirname, 'article-voice-ai-receptionist-restaurants.html'),
                 'article-ai-small-business-marketing': resolve(__dirname, 'article-ai-small-business-marketing.html'),
                 'article-marketing-automation-local-business': resolve(__dirname, 'article-marketing-automation-local-business.html'),
+                // SEO blog articles — Batch 2
+                'article-best-marketing-agency-sydney': resolve(__dirname, 'article-best-marketing-agency-sydney.html'),
+                'article-hospitality-marketing-sydney': resolve(__dirname, 'article-hospitality-marketing-sydney.html'),
+                'article-ai-chatbot-business-australia': resolve(__dirname, 'article-ai-chatbot-business-australia.html'),
                 // Services pages
                 'services-ai': resolve(__dirname, 'services/index.html'),
                 'services-social': resolve(__dirname, 'services/social.html'),

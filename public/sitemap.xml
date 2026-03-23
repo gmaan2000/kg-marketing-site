@@ -233,4 +233,23 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- SEO Blog Articles — Batch 2 -->
+  <url>
+    <loc>https://kgmarketingmedia.com/article-best-marketing-agency-sydney.html</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kgmarketingmedia.com/article-hospitality-marketing-sydney.html</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kgmarketingmedia.com/article-ai-chatbot-business-australia.html</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
