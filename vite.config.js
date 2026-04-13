@@ -36,6 +36,10 @@ export default defineConfig({
                 'article-best-marketing-agency-sydney': resolve(__dirname, 'article-best-marketing-agency-sydney.html'),
                 'article-hospitality-marketing-sydney': resolve(__dirname, 'article-hospitality-marketing-sydney.html'),
                 'article-ai-chatbot-business-australia': resolve(__dirname, 'article-ai-chatbot-business-australia.html'),
+                // SEO blog articles — Batch 3 (April 2026)
+                'article-email-marketing-automation-australia': resolve(__dirname, 'article-email-marketing-automation-australia.html'),
+                'article-ai-marketing-restaurants-sydney': resolve(__dirname, 'article-ai-marketing-restaurants-sydney.html'),
+                'article-digital-marketing-western-sydney': resolve(__dirname, 'article-digital-marketing-western-sydney.html'),
                 // Services pages
                 'services-ai': resolve(__dirname, 'services/index.html'),
                 'services-social': resolve(__dirname, 'services/social.html'),
